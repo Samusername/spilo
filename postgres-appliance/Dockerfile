@@ -74,7 +74,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         # install etcdctl
         && ETCDVERSION=3.3.27 \
         && curl -L https://github.com/coreos/etcd/releases/download/v${ETCDVERSION}/etcd-v${ETCDVERSION}-linux-$(dpkg --print-architecture).tar.gz \
-                | tar xz -C /bin --strip=1 --wildcards --no-anchored etcdctl etcd \
+                | tar xz -C /bin --strip=1 --wildcards --no-anchored --no-same-owner etcdctl etcd \
         && chown root:root /bin/etcd*; \
     fi \
 \
